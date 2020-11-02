@@ -51,6 +51,8 @@ add_sources(
 	results.h
 	sdl_rt.cpp
 	sdl_rt.h
+	sprite_hook.cpp
+	sprite_hook.h
 	studio_util.cpp
 	studio_util.h
 	StudioModelRenderer.cpp

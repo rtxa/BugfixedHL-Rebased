@@ -42,6 +42,7 @@ extern "C"
 #include "cl_voice_status.h"
 #include "bhlcfg.h"
 #include "results.h"
+#include "sprite_hook.h"
 #include "updater/update_checker.h"
 
 // HUD Elements
@@ -279,12 +280,16 @@ void CHud::Init(void)
 	bhlcfg::Init();
 	CResults::Get().Init();
 	CUpdateChecker::Get().Init();
+	CSpriteHook::Get().Init();
 }
 
 void CHud::VidInit(void)
 {
+	// FIXME: remove this
 	m_scrinfo.iSize = sizeof(m_scrinfo);
 	GetScreenInfo(&m_scrinfo);
+
+	CSpriteHook::Get().VidInit();
 
 	// Reset all player info
 	for (int i = 1; i <= MAX_PLAYERS; i++)
@@ -394,6 +399,7 @@ void CHud::Frame(double time)
 	CResults::Get().Frame();
 	CHttpClient::Get().RunFrame();
 	CUpdateChecker::Get().RunFrame();
+	CSpriteHook::Get().RunFrame();
 
 	while (m_NextFrameQueue.size())
 	{

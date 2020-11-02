@@ -19,6 +19,8 @@
 //
 // CHud handles the message, calculation, and drawing the HUD
 //
+#ifndef HUD_H
+#define HUD_H
 
 #include <functional>
 #include <vector>
@@ -148,6 +150,7 @@ public:
 	int GetNumWidth(int iNumber, int iFlags);
 	int GetHudCharWidth(int c);
 	int CalculateCharWidth(int c);
+	void ClearCharWidths();
 
 	//-----------------------------------------------------
 	// Sprite functions
@@ -288,3 +291,5 @@ extern int g_iTeamNumber;
 extern int g_iUser1;
 extern int g_iUser2;
 extern int g_iUser3;
+
+#endif

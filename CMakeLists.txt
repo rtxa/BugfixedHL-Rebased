@@ -431,6 +431,7 @@ if( WIN32 )
 		psapi
 		DInput
 		DXGUID
+		opengl32
     )
 
 	target_include_directories( client PRIVATE

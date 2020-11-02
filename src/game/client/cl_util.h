@@ -16,6 +16,8 @@
 // cl_util.h
 //
 
+#ifndef CL_UTIL_H
+#define CL_UTIL_H
 #ifndef TRUE
 #define TRUE  1
 #define FALSE 0
@@ -29,6 +31,7 @@
 #include "cvardef.h"
 #include <convar.h>
 #include "console.h"
+#include "sprite_hook.h"
 
 inline void HookMessage(const char *pszName, UserMsgHookFn fn)
 {
@@ -53,29 +56,67 @@ inline struct cvar_s *CVAR_CREATE(const char *cv, const char *val, const int fla
 	return gEngfuncs.pfnRegisterVariable(cv, val, flags);
 }
 
-#define SPR_Load    (*gEngfuncs.pfnSPR_Load)
-#define SPR_Set     (*gEngfuncs.pfnSPR_Set)
-#define SPR_Frames  (*gEngfuncs.pfnSPR_Frames)
-#define SPR_GetList (*gEngfuncs.pfnSPR_GetList)
+inline HSPRITE SPR_Load(const char *szPicName)
+{
+	return gEngfuncs.pfnSPR_Load(szPicName);
+}
+
+inline void SPR_Set(HSPRITE hPic, int r, int g, int b)
+{
+	gEngfuncs.pfnSPR_Set(hPic, r, g, b);
+}
+
+inline int SPR_Frames(HSPRITE hPic)
+{
+	return gEngfuncs.pfnSPR_Frames(hPic);
+}
+
+inline client_sprite_t *SPR_GetList(const char *const pszName, int *piCount)
+{
+	return gEngfuncs.pfnSPR_GetList(pszName, piCount);
+}
 
 // SPR_Draw  draws a the current sprite as solid
-#define SPR_Draw (*gEngfuncs.pfnSPR_Draw)
+inline void SPR_Draw(int frame, int x, int y, const wrect_t *prc)
+{
+	gEngfuncs.pfnSPR_Draw(frame, x, y, prc);
+}
+
 // SPR_DrawHoles  draws the current sprites,  with color index255 not drawn (transparent)
-#define SPR_DrawHoles (*gEngfuncs.pfnSPR_DrawHoles)
+inline void SPR_DrawHoles(int frame, int x, int y, const wrect_t *prc)
+{
+	gEngfuncs.pfnSPR_DrawHoles(frame, x, y, prc);
+}
+
 // SPR_DrawAdditive  adds the sprites RGB values to the background  (additive transulency)
-#define SPR_DrawAdditive (*gEngfuncs.pfnSPR_DrawAdditive)
+inline void SPR_DrawAdditive(int frame, int x, int y, const wrect_t *prc)
+{
+	gEngfuncs.pfnSPR_DrawAdditive(frame, x, y, prc);
+}
 
 // SPR_EnableScissor  sets a clipping rect for HUD sprites.  (0,0) is the top-left hand corner of the screen.
-#define SPR_EnableScissor (*gEngfuncs.pfnSPR_EnableScissor)
+inline void SPR_EnableScissor(int x, int y, int width, int height)
+{
+	gEngfuncs.pfnSPR_EnableScissor(x, y, width, height);
+}
+
 // SPR_DisableScissor  disables the clipping rect
-#define SPR_DisableScissor (*gEngfuncs.pfnSPR_DisableScissor)
+inline void SPR_DisableScissor()
+{
+	gEngfuncs.pfnSPR_DisableScissor(); 
+}
+
 //
-#define FillRGBA (*gEngfuncs.pfnFillRGBA)
+inline void FillRGBA(int x, int y, int width, int height, int r, int g, int b, int a)
+{
+	gEngfuncs.pfnFillRGBA(x, y, width, height, r, g, b, a);
+}
 
 // ScreenHeight returns the height of the screen, in pixels
-#define ScreenHeight (gHUD.m_scrinfo.iHeight)
+#define ScreenHeight (CSpriteHook::Get().GetHudScreenHeight())
+
 // ScreenWidth returns the width of the screen, in pixels
-#define ScreenWidth (gHUD.m_scrinfo.iWidth)
+#define ScreenWidth (CSpriteHook::Get().GetHudScreenWidth())
 
 #define BASE_XRES 640.f
 
@@ -240,3 +281,5 @@ void RemoveColorCodes(const char *string, char *buf, size_t bufSize);
  * @return	Pointer to a static buffer.
  */
 const char *RemoveColorCodes(const char *string);
+
+#endif

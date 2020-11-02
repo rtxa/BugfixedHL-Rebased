@@ -442,7 +442,7 @@ struct cl_enginefunc_t
 	void (*pfnSPR_DrawAdditive)(int frame, int x, int y, const wrect_t *prc);
 
 	/**
-	*	Dets a clipping rect for HUD sprites. (0,0) is the top-left hand corner of the screen.
+	*	Sets a clipping rect for HUD sprites. (0,0) is the top-left hand corner of the screen.
 	*	@param x Left coordinate of the box.
 	*	@param y Top coordinate of the box.
 	*	@param width Width of the box.
@@ -610,7 +610,7 @@ struct cl_enginefunc_t
 	*	@param x Left position.
 	*	@param y Top position.
 	*	@param pszString String to draw.
-	*	@return Total width of the drawn string.
+	*	@return X + Total width of the drawn string.
 	*/
 	int (*pfnDrawConsoleString)(int x, int y, const char *const pszString);
 

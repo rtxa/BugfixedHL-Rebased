@@ -45,9 +45,7 @@ ConVar hud_colortext("hud_colortext", "1", FCVAR_BHL_ARCHIVE);
 // Think
 void CHud::Think(void)
 {
-	m_scrinfo.iSize = sizeof(m_scrinfo);
-	GetScreenInfo(&m_scrinfo);
-
+	CSpriteHook::Get().Think();
 	CResults::Get().Think();
 
 	int newfov;
@@ -461,4 +459,9 @@ int CHud::CalculateCharWidth(int c)
 	Q_WStringToUTF8(wch, buf, sizeof(buf), STRINGCONVERT_REPLACE);
 	int width = TextMessageDrawString(ScreenWidth + 1, 0, buf, 255, 255, 255);
 	return width;
+}
+
+void CHud::ClearCharWidths()
+{
+	m_CharWidths.clear();
 }

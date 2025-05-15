@@ -222,6 +222,13 @@ public:
 
 	void GetHudAmmoColor(int value, int maxvalue, int &r, int &g, int &b);
 
+	/**
+	 * Used to calculate HUD alphas when dimming is enabled.
+	 * Alpha 1 is for the glow effect, it will hide itself after being dimmed.
+	 * Alpha 2 is for the normal text, it will be visible even when dimmed.
+	 */
+	std::pair<int, int> GetHudDimAlphas(bool dimEnabled, float &fade, float timeDelta);
+
 	float GetHudTransparency();
 
 	ColorCodeAction GetColorCodeAction();
@@ -290,6 +297,7 @@ private:
 	Color m_HudColor1;
 	Color m_HudColor2;
 	Color m_HudColor3;
+	Color m_HudColor4;
 	Color m_ColorCodeColors[10];
 
 	ColorCodeAction m_ColorCodeAction;

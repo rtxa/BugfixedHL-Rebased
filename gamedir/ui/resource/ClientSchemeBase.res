@@ -528,6 +528,178 @@ Scheme
 				"symbol"	"1"
 			}
 		}
+
+		// Rtxa custom fonts
+		HudNumbers
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "24"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+				// "dropshadow" "1"
+				"outline" "1"
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+		}
+		HudNumbersShadow
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "24"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+				"dropshadow" "1"
+				"outline" "1"
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+		}
+				// Rtxa custom fonts
+		HudNumbersGlow
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "24"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+				"blur"      "4"
+				"scanlines" "2"
+				"custom" "1"
+				// "dropshadow" "1"
+
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+			
+		}
+		HudNumbersGlowTiny
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "24"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+				"blur"      "0"
+				"scanlines" "2"
+				"custom" "1"
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+			
+		}
+		HudNumbersSmall
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "16"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+		}
+				// Rtxa custom fonts
+		HudNumbersSmallGlow
+		{
+			"1"
+			{
+				"name"  "Alte DIN 1451 Mittelschrift"  //"Counter-Strike" // Cstrike.ttf
+				"tall"  "16"
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+				"blur"      "4"
+				"scanlines" "2"
+				"custom" "1"
+			}
+			"2"
+			{
+				"name"  "Hemi Head 426" //"Verdana"
+				"tall"  "24"				
+				"weight" "0"
+				"additive" "1"  //Standard is "1" makes a wash out
+				"antialias" "1"
+			}
+			
+		}
+		Icons  // for Health, Armor, Timer, Ammo, Budget, Shopping cart, hostages, defuse kit and C4 icons.
+		{
+			"1"
+		   {
+			"name"  "Counter-Strike_two" // Cstrike.ttf
+			"tall"  "24"
+			"weight" "0"
+			"additive" "1"  //Standard is "1" makes a wash out
+			"antialias" "1"
+			"custom" "1" [$OSX]
+		   }
+		}
+		Icons2  // for Health, Armor, Timer, Ammo, Budget, Shopping cart, hostages, defuse kit and C4 icons.
+		{
+			"1"
+		   {
+			"name"  "BoxRocket"
+			"tall"  "24"
+			"weight" "0"
+			"additive" "1"  //Standard is "1" makes a wash out
+			"antialias" "1"
+			"custom" "1" [$OSX]
+		   }
+		}
+		IconsSmall  // for ammo the small icons.
+		{
+			"1"
+		   {
+			"name"  "Counter-Strike_two" // Cstrike.ttf
+			"tall"  "20"
+			"weight" "0"
+			"additive" "1"  //Standard is "1" makes a wash out
+			"antialias" "1"
+			"custom" "1" [$OSX]
+		   }
+		}		
 	}
 
 	//
@@ -933,7 +1105,14 @@ Scheme
 	CustomFontFiles
 	{
 		"1"		"resource/HALFLIFE2.ttf"
-	
+		"2"     "ui/resource/fonts/HEMIHEAD.ttf"
+		"3"	    "ui/resource/fonts/cstrike_two.ttf"
+		"4"     "ui/resource/fonts/boxrocket.ttf"
+		"5"     "ui/resource/fonts/bahnschrift.ttf"
+		"6"     "ui/resource/fonts/Gidole-Regular.ttf"
+		"7"     "ui/resource/fonts/Gidolinya-Regular.ttf"
+		"8"     "ui/resource/fonts/DINish-Italic.ttf"
+		"9"     "ui/resource/fonts/alte-din-1451-mittelschrift.regular.ttf"
 	}
 	
 }

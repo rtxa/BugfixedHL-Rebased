@@ -88,6 +88,10 @@ public:
 	void IsAmmoSecondaryPanelVisible();
 	void UpdateAmmoSecondaryPanel(WEAPON *pWeapon, int maxClip, int ammo1, int ammo2);
 
+	// Allows to get custom positions to avoid overlapping with other panels
+	int GetAmmoHistoryYPos();
+	int GetStatusBarYPos();
+
 	bool IsScoreBoardVisible();
 	void ShowScoreBoard();
 	void HideScoreBoard();

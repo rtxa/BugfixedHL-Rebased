@@ -28,6 +28,7 @@ CHudHealthPanel::CHudHealthPanel()
 
 void CHudHealthPanel::ApplySchemeSettings(vgui2::IScheme *pScheme)
 {
+	ComputePos(m_szStatusBarY, m_iStatusBarY, GetTall(), GetParent() ? GetParent()->GetTall() : 0, true);
 	BaseClass::ApplySchemeSettings(pScheme);
 	SetPaintBackgroundEnabled(true);
 }
@@ -50,6 +51,11 @@ void CHudHealthPanel::UpdateHealthPanel(int health)
 	snprintf(buf, sizeof(buf), "%d", health);
 	m_pHealthAmount->SetText(buf);
 	m_pHealthAmountGlow->SetText(buf);
+}
+
+int CHudHealthPanel::GetStatusBarYPos()
+{
+	return m_iStatusBarY;
 }
 
 const char *CHudHealthPanel::GetName()

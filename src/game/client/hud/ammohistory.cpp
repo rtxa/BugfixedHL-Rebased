@@ -24,13 +24,17 @@
 #include <stdio.h>
 
 #include "ammohistory.h"
+#include "vgui/client_viewport.h"
 
 ConVar hud_drawhistory_time("hud_drawhistory_time", "5", FCVAR_BHL_ARCHIVE, "How long should ammo history stay up for in seconds");
 
 HistoryResource gHR;
 
+// Note: When using custom HUD, the position of the ammo history can be set
+// to avoid overlapping with the ammo panel.
+extern ConVar hud_custom;
 #define AMMO_PICKUP_GAP         (gHR.iHistoryGap + 5)
-#define AMMO_PICKUP_PICK_HEIGHT (32 + (gHR.iHistoryGap * 2))
+#define AMMO_PICKUP_PICK_HEIGHT (((hud_custom.GetBool()) ? ScreenHeight - g_pViewport->GetAmmoHistoryYPos() : 32) + (gHR.iHistoryGap * 2))
 #define AMMO_PICKUP_HEIGHT_MAX  (ScreenHeight - 100)
 
 #define MAX_ITEM_NAME 32

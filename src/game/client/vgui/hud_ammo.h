@@ -23,6 +23,7 @@ public:
 	virtual void PaintBackground() override;
 
 	void UpdateAmmoPanel(WEAPON *pWeapon, int maxClip, int ammo1, int ammo2);
+	int GetAmmoHistoryYPos();
 
 	void OnThink() override;
 
@@ -44,8 +45,10 @@ private:
 
 	int m_iBarX = 0;
 	int m_iBarFullX = 0;
+	int m_iAmmoHistoryY = 0;
 	CPanelAnimationStringVar(32, m_szBarFullX, "bar_full_xpos", "100");
 	CPanelAnimationStringVar(32, m_szBarX, "bar_xpos", "100");
+	CPanelAnimationStringVar(32, m_szAmmoHistoryY, "ammohistory_ypos", "100");
 
 	CPanelAnimationVar(Color, m_DividerOffColor, "divider_offcolor", "128 128 128 96");
 	CPanelAnimationVarAliasType(int, m_iDividerX, "divider_xpos", "1", "proportional_int");

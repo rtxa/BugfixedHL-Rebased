@@ -470,6 +470,17 @@ void CClientViewport::UpdateAmmoPanel(WEAPON *pWeapon, int maxClip, int ammo1, i
 	m_pHudAmmoSecondaryPanel->UpdateAmmoPanel(pWeapon, maxClip, ammo1, ammo2);
 }
 
+
+int CClientViewport::GetAmmoHistoryYPos()
+{
+	return m_pHudAmmoPanel->GetAmmoHistoryYPos();
+}
+
+int CClientViewport::GetStatusBarYPos()
+{
+	return m_pHudHealthPanel->GetStatusBarYPos();
+}
+
 void CClientViewport::UpdateSpectatorPanel()
 {
 	m_iUser1 = g_iUser1;

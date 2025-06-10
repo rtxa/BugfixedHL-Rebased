@@ -21,6 +21,7 @@ public:
 	virtual void PaintBackground() override;
 
 	void UpdateHealthPanel(int health);
+	int GetStatusBarYPos();
 
 	void OnThink() override;
 
@@ -40,6 +41,9 @@ private:
 
 	float m_fFade = 0.0f;
 	int m_iHealth = 100;
+
+	int m_iStatusBarY = 0;
+	CPanelAnimationStringVar(32, m_szStatusBarY, "statusbar_ypos", "0");
 
 	ConVarRef m_pHudDim{"hud_dim"};
 	ConVarRef m_pHudColorOverride{"hud_color_override"};

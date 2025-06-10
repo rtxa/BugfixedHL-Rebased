@@ -52,6 +52,7 @@ void CHudAmmoPanel::ApplySchemeSettings(vgui2::IScheme *pScheme)
 	// Calculate positions here because variable binding doesn't support position flags.
 	ComputePos(m_szBarX, m_iBarX, GetWide(), GetParent() ? GetParent()->GetWide() : 0, true);
 	ComputePos(m_szBarFullX, m_iBarFullX, GetWide(), GetParent() ? GetParent()->GetWide() : 0, true);
+	ComputePos(m_szAmmoHistoryY, m_iAmmoHistoryY, GetTall(), GetParent() ? GetParent()->GetTall() : 0, true);
 
 	BaseClass::ApplySchemeSettings(pScheme);
 	SetPaintBackgroundEnabled(true);
@@ -169,6 +170,11 @@ void CHudAmmoPanel::UpdateAmmoPanel(WEAPON *pWeapon, int maxClip, int ammo1, int
 			break;
 		}
 	}
+}
+
+int CHudAmmoPanel::GetAmmoHistoryYPos()
+{
+	return m_iAmmoHistoryY;
 }
 
 const char *CHudAmmoPanel::GetName()
